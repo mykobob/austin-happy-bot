@@ -20,6 +20,12 @@ def verify():
 
     return "Hello world", 200
 
+def generate_response(text):
+    text = text.lower()
+    if 'sad' in text:
+        return 'Cheer up! God is with you (Joshua 1:9)'
+
+    return "Don't worry. Jesus loves you"
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -40,7 +46,9 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "roger that!")
+                    response = generate_response(message_text)
+
+                    send_message(sender_id, response)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
