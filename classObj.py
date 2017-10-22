@@ -114,6 +114,7 @@ def getResponse(emotion, confidence):
   print('greeting', greeting)
   verse = getVerse(emotion)
   print(greeting, verse)
+  print(type(greeting), type(verse))
   return greeting + verse
   
 """ 
