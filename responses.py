@@ -67,7 +67,7 @@ def generate_response(text):
             emotion_verse, confidence = get_emotion_for_verse(emotion_probabilities)
             print('Emotion for verse is', emotion_verse)
 
-            response = getResponse(emotion_verse, confidence)
+            response = getResponse(emotion_verse.value, confidence)
             print('Response for the message is', response)
             return response
         else:
