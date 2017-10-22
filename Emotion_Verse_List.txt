@@ -1,0 +1,161 @@
+7
+Happy
+19
+Isaiah,12,3,3
+2 Chronicles,9,7,7
+Matthew,5,3,3
+Psalms,47,1,1
+Isaiah,9,3,3
+Ecclesiastes,9,7,7
+Isaiah,35,10,10
+Zephaniah,3,17,17
+Philippians,4,4,4
+Romans,12,12,12
+Psalms,94,19,19
+John,3,16,17
+Romans,15,13,13
+Psalms,137,2,4
+Psalms,27,5,7
+Psalms,97,10,12
+Psalms,97,4,5
+Psalms,126,2,3
+Nehemiah,8,10,10
+Praise
+18
+John,15,11,11
+1 John,3,18,18
+Romans,5,2,2
+1 Peter,4,13,13
+Romans,15,13,13
+Isaiah,12,6,6
+Psalms,27,6,6
+Isaiah,26,12,12
+Isaiah,55,12,12
+Habakkuk,9,17,18
+1 Peter,1,8,9
+Proverbs,15,23,23
+2 Corinthians,12,10,10
+Psalm,100,1,1
+Psalm,103,3,5
+Psalm,63,3,4
+Psalms,71,23,23
+Psalms,92,4,5
+Love
+50
+Psalm,143,8,8
+Proverbs,3,3,4
+Philemon,1,7,7
+Ephesians,4,2,2
+1 Peter,4,8,8
+1 Corinthians,13,13,13
+Romans,12,9,9
+1 Corinthians,13,2,2
+John,15,12,12
+Romans,12,10,10
+1 John,4,12,12
+John,15,13,13
+Romans,13,8,8
+1 John,3,1,1
+1 John,4,18,18
+Proverbs,21,21,21
+Ephesians,4,15,15
+Proverbs,10,12,12
+Romans,8,38,39
+1 John,4,8,8
+Mark,12,30,30
+Isaiah,54,10,10
+1 Corinthians,13,1,1
+2 Timothy,1,7,7
+Lamentations,3,22,23
+Psalm,103,8,8
+Jude,1,2,2
+1 John,4,10,10
+Romans,8,35,35
+1 Corinthians,13,3,3
+1 Timothy,6,11,11
+Romans,13,10,10
+Psalm,42,8,8
+Psalm,94,18,18
+Luke,10,27,27
+1 John,3,11,11
+John,14,21,21
+1 John,4,11,11
+1 John,4,9,9
+John,13,34,34
+Psalm,86,5,5
+Psalm,63,3,4
+Galatians,5,22,23
+Revelation,3,19,19
+Proverbs,3,11,12
+Romans,8,28,28
+John,13,35,35
+2 Peter,1,5,7
+1 John,4,7,7
+Psalm,40,11,11
+Peace
+14
+Psalms,149,4,4
+2 Corinthians,12,10,10
+Mark,13,31,31
+Romans,14,17,17
+John,16,33,33
+Colossians,3,15,15
+1 Peter,5,7,7
+Philippians,4,7,7
+Psalms,37,37,37
+Psalms,119,165,165
+Matthew,11,28,30
+John,14,27,27
+1 Corinthians,14,33,33
+Romans,15,13,13
+Gratitude
+11
+Isaiah,61,10,10
+Psalms,149,4,4
+1 Chronicles,16,34,34
+Colossians,3,15,15
+Colossians,3,17,17
+James,1,17,17
+Philippians,4,6,6
+Psalms,100,4,4
+Psalms,106,1,1
+Hebrews,12,28,29
+Psalms,28,7,7
+Trust
+14
+Acts,20,35,35
+Isaiah,12,2,2
+Psalms,4,6,8
+Psalms,16,11,11
+Psalms,21,5,7
+Proverbs,3,5,6
+Psalm,56,3,3
+Proverbs,16,3,3
+Isaiah,43,2,2
+Psalms,143,8,8
+1 John,5,14,14
+Psalm,91,1,2
+Psalm,62,7,7
+Psalm,121,3,3
+Encouragement
+20
+Proverbs,10,28,28
+1 Peter,2,9,9
+Isaiah,41,10,10
+1 Timothy,6,12,12
+Matthew,5,8,8
+Psalms,37,4,4
+Proverbs,15,17,17
+Matthew,5,3,3
+1 Peter,1,8,9
+Luke,15,7,7
+2 Samuel,22,20,20
+Mehemiah,8,10,10
+John,16,33,33
+Psalms,29,11,11
+Matthew,11,28,30
+John,14,27,27
+Romans,15,13,13
+Psalms,32,7,7
+Psalms,149,4,4
+Matthew,25,24,24
