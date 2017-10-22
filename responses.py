@@ -13,7 +13,7 @@ def generate_response(text):
     text = text.lower()
     print('text', text)
     try:
-        response = call_ibm_watson(text)
+        response = str(call_ibm_watson(text))
         print(response)
         return response
     except:
