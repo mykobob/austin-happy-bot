@@ -16,6 +16,8 @@ def generate_response(text):
         print(response)
         return response
     except:
+        e = sys.exc_info()[0]
+        print(e)
         return "Oh. What do you mean?"
 
     if 'sad' in text:

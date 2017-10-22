@@ -26,5 +26,4 @@ def call_ibm_watson(text):
           )
         ])
     
-    print(json.dumps(response, indent=2))
     return json.loads(response)
