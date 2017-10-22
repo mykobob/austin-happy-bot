@@ -1,3 +1,5 @@
+from enum import Enum
+
 class Emotion(Enum):
   HAPPY = 1
   PRAISE = 2
