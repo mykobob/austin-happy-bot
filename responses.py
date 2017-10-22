@@ -13,7 +13,8 @@ def generate_response(text):
     text = text.lower()
     print('text', text)
     try:
-        response = call_ibm_watson(text)['emotion']['document']
+        response = call_ibm_watson(text)['emotion']['document']['emotion']
+        response = ['{}-{} '.format(k, v) for k, v in response.items()]
         response = str(response)
         print('successful ibm call', response, type(response))
         return response
