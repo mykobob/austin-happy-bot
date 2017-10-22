@@ -14,15 +14,15 @@ def generate_response(text):
     print('text', text)
     try:
         response = str(call_ibm_watson(text))
-        print('successful ibm call', response)
+        print('successful ibm call', response, str(response))
         return response
     except:
         e = sys.exc_info()[0]
-        print(e)
+        print(str(e))
         return "Oh. What do you mean?"
 
-    if 'sad' in text:
-        return 'Cheer up! God is with you (Joshua 1:9)'
+    #if 'sad' in text:
+    #    return 'Cheer up! God is with you (Joshua 1:9)'
 
-    return "Don't worry. Jesus loves you"
+    #return "Don't worry. Jesus loves you"
 

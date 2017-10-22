@@ -76,6 +76,7 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     response = generate_response(message_text)
+                    print('Got the response!')
 
                     send_message(sender_id, response)
 
