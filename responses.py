@@ -62,9 +62,13 @@ def generate_response(text):
         if has_dominant_emotion(emotion_probabilities):
             # response = ['{}-{} '.format(k, v) for k, v in response.items()]
             # response = str(response)
+            print('Is Dominant emotion')
             emotion_verse, confidence = get_emotion_for_verse(emotion_probabilities)
+            print('Emotion for verse is', emotion_verse)
 
-            return getResponse(emotion_verse, confidence)
+            response = getResponse(emotion_verse, confidence)
+            print('Response for the message is', response)
+            return response
         else:
             return "Can you elaborate a little more on that?"
     except:
