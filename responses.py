@@ -10,6 +10,7 @@ def generate_response(text):
     #   2b) 
     #      3) Ask another question to figure out emotion
     text = text.lower()
+    print('text', text)
     response = call_ibm_watson(text)
     # print(call_ibm_watson(text))
     return response
