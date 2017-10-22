@@ -11,9 +11,12 @@ def generate_response(text):
     #      3) Ask another question to figure out emotion
     text = text.lower()
     print('text', text)
-    #response = call_ibm_watson(text)
-    # print(call_ibm_watson(text))
-    #return response
+    try:
+        response = call_ibm_watson(text)
+        print(response)
+    except:
+        return "Oh. How is that?"
+    return response
 
     if 'sad' in text:
         return 'Cheer up! God is with you (Joshua 1:9)'
