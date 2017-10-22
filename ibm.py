@@ -19,3 +19,7 @@ def call_ibm_watson(text):
     
     #print(json.dumps(response, indent=2))   
     return response
+
+def get_emotion_probabilities(text):
+    response = call_ibm_watson(text)
+    return response['emotion']['document']['emotion']
