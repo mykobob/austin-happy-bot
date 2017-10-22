@@ -14,9 +14,9 @@ def generate_response(text):
     try:
         response = call_ibm_watson(text)
         print(response)
+        return response
     except:
         return "Oh. What do you mean?"
-    return response
 
     if 'sad' in text:
         return 'Cheer up! God is with you (Joshua 1:9)'
