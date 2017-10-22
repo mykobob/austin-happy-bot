@@ -1,10 +1,48 @@
-from ibm import call_ibm_watson
+from ibm import get_emotion_probabilities
 import sys
+
+from emotion_handlers import *
 
 MINIMUM_THRESHOLD = 0.5
 
-def clear_emotion(response):
+def has_dominant_emotion(response):
     return any(v > MINIMUM_THRESHOLD for k, v in response.items())
+
+def get_dominant_emotion(response):
+    best_prob = -1
+    strongest_emotion = 'something'
+    for k, v in response.items():
+        if v > best_prob:
+            best_prob = v
+            strongest_emotion = k
+    return k, v
+
+def get_emotion_for_verse(response):
+    # Maps sadness, joy, fear, disgust, anger to the below emotions
+    # HAPPY = 1
+    # PRAISE = 2
+    # LOVE = 3
+    # PEACE = 4
+    # GRATITUDE = 5
+    # TRUST = 6
+    # ENCOURAGEMENT = 7
+
+    # sadness -> [HAPPY, TRUST, GRATITUDE]
+    # joy -> [LOVE, PRAISE, GRATITUDE]
+    # fear -> [PEACE, TRUST, ENCOURAGEMENT]
+    # disgust -> [PEACE, ENCOURAGEMENT] 
+    # anger -> [PEACE, TRUST, ENCOURAGEMENT]
+    highest_emotion, value = get_dominant_emotion(response)
+    if highest_emotion == 'sadness':
+        return handle_sadness(value)
+    elif highest_emotion == 'joy':
+        return handle_joy(value)
+    elif highest_emotion == 'fear':
+        return handle_fear(value)
+    elif highest_emotion == 'disgust':
+        return handle_disgust(value)
+    else: # must be anger
+        return handle_anger(value)
 
 def generate_response(text):
     # 1) Send data to IBM Watson
@@ -16,14 +54,14 @@ def generate_response(text):
     #   2b) 
     #      3) Ask another question to figure out emotion
     text = text.lower()
-    print('text', text)
+
     try:
-        response = call_ibm_watson(text)['emotion']['document']['emotion']
-        if clear_emotion(response):
-            # get verse and stuff
-            response = ['{}-{} '.format(k, v) for k, v in response.items()]
-            response = str(response)
-            return response
+        emotion_probabilities = get_emotion_probabilities(text)
+        if has_dominant_emotion(emotion_probabilities):
+            # response = ['{}-{} '.format(k, v) for k, v in response.items()]
+            # response = str(response)
+            emotion_verse = get_emotion_for_verse(emotion_probabilities)
+            return emotion_verse
         else:
             return "Can you elaborate a little more on that?"
     except:
