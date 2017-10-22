@@ -22,13 +22,6 @@ def verify():
 
     return "Hello world", 200
 
-def generate_response(text):
-    text = text.lower()
-    if 'sad' in text:
-        return 'Cheer up! God is with you (Joshua 1:9)'
-
-    return "Don't worry. Jesus loves you"
-
 @app.route('/', methods=['POST'])
 def webhook():
 

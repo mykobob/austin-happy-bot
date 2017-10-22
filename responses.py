@@ -9,6 +9,11 @@ def generate_response(text):
     #      5) return the verse
     #   2b) 
     #      3) Ask another question to figure out emotion
+    text = text.lower()
     print(call_ibm_watson(text))
-    return "hi"
+
+    if 'sad' in text:
+        return 'Cheer up! God is with you (Joshua 1:9)'
+
+    return "Don't worry. Jesus loves you"
 
