@@ -17,6 +17,3 @@ def call_ibm_watson(text):
     
     print(json.dumps(response, indent=2))
     return json.loads(response)
-
-if __name__ == '__main__':
-    print(call_ibm_watson('im happy today'))
