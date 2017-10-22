@@ -14,6 +14,7 @@ def generate_response(text):
     print('text', text)
     try:
         response = str(call_ibm_watson(text))
+        response = 'hi'
         print('successful ibm call', response, str(response))
         return response
     except:
