@@ -6,8 +6,6 @@ import watson_developer_cloud.natural_language_understanding.features.v1 as \
 def call_ibm_watson(text):
     username = os.environ['BLUEMIX_USERNAME']
     password = os.environ['BLUEMIX_PASSWORD']
-    print('user, pass')
-    print(username, password)
     natural_language_understanding = NaturalLanguageUnderstandingV1(
         version='2017-02-27',
         username=os.environ['BLUEMIX_USERNAME'],
