@@ -1,4 +1,5 @@
 from ibm import call_ibm_watson
+import sys
 
 def generate_response(text):
     # 1) Send data to IBM Watson
