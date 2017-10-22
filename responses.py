@@ -15,7 +15,7 @@ def generate_response(text):
         response = call_ibm_watson(text)
         print(response)
     except:
-        return "Oh. How is that?"
+        return "Oh. What do you mean?"
     return response
 
     if 'sad' in text:
