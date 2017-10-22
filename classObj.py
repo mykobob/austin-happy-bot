@@ -56,32 +56,24 @@ def init():
             allVerses[i + 1].append(VerseObj(book, chap, startV, endV))
             actualCount += 1
             
+    verseFile.close()
  #   print(str(allVerses))
 
+def getVerseText(verse_obj):
     from pprint import pprint
-    book = "Psalms"
-    chapter = 10
-    verse = 4
     
-    verSe = "Psalms 10:4-10" #will get all the verses, but haven't fixed the printing
+    verse_ref = str(verse_obj) #will get all the verses, but haven't fixed the printing
     
-    reference = '{} {}:{}'.format(book, chapter, verse)
-
-    bible_response = requests.get('http://getbible.net/json?passage=' + reference)
+    bible_response = requests.get('http://getbible.net/json?passage=' + verse_ref)
     bible_obj = json.loads(bible_response.text[1:-2])
  #   pprint(bible_obj)
 
     verse = bible_obj['book'][0]['chapter'][str(verse)]['verse'].strip()#need to be fixed
  #   pprint(verse)
  #   print(verse)
-    
-
-    
-    verseFile.close()
-
     return verse
 
-message = init()
+init()
 print(allVerses)
 
 def getVerse(emotionNum):
@@ -100,7 +92,6 @@ def giveVerse():
   return givingVerse[ranGen]
 
 print(str(giveVerse()), str(getVerse(1)),"\n")
-print(message)
 
 def getResponse(emotion, confidence):
   print(emotion, confidence)
@@ -115,7 +106,7 @@ def getResponse(emotion, confidence):
   verse = getVerse(emotion)
   print(greeting, verse)
   print(type(greeting), type(verse))
-  return greeting + verse
+  return greeting + str(verse)
   
 """ 
 print(getResponse(1, 19))
