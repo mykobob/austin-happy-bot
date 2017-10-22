@@ -17,5 +17,5 @@ def call_ibm_watson(text):
           Features.Emotion(),
         ])
     
-    print(json.dumps(response, indent=2))   
+    #print(json.dumps(response, indent=2))   
     return response

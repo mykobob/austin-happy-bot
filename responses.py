@@ -1,6 +1,11 @@
 from ibm import call_ibm_watson
 import sys
 
+MINIMUM_THRESHOLD = 0.5
+
+def clear_emotion(response):
+    return any(v > MINIMUM_THRESHOLD for k, v in response.items())
+
 def generate_response(text):
     # 1) Send data to IBM Watson
     # 2) Retrieve emotion probabilities
@@ -14,13 +19,15 @@ def generate_response(text):
     print('text', text)
     try:
         response = call_ibm_watson(text)['emotion']['document']['emotion']
-        response = ['{}-{} '.format(k, v) for k, v in response.items()]
-        response = str(response)
-        print('successful ibm call', response, type(response))
-        return response
+        if clear_emotion(response):
+            # get verse and stuff
+            response = ['{}-{} '.format(k, v) for k, v in response.items()]
+            response = str(response)
+            return response
+        else:
+            return "Can you elaborate a little more on that?"
     except:
         e = sys.exc_info()[0]
-        print(str(e))
         return "Oh. What do you mean?"
 
     #if 'sad' in text:
