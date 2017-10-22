@@ -74,6 +74,7 @@ def generate_response(text):
             return "Can you elaborate a little more on that?"
     except:
         e = sys.exc_info()[0]
+        print(e)
         return "Oh. What do you mean?"
 
     #if 'sad' in text:
