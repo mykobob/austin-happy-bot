@@ -1,4 +1,4 @@
-import json
+import json, os
 from watson_developer_cloud import NaturalLanguageUnderstandingV1
 import watson_developer_cloud.natural_language_understanding.features.v1 as \
     Features
