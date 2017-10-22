@@ -138,16 +138,7 @@ def getResponse(emotion, confidence):
     return getEncouragement()
   #if (confidence < confThreshVerse):
   return giveVerse() + getVerse(emotion)
-
   
-class Emotion(Enum):
-  HAPPY = 1
-  PRAISE = 2
-  LOVE = 3
-  PEACE = 4
-  GRATITUDE = 5
-  TRUST = 6
-  ENCOURAGEMENT = 7
 """ 
 print(getResponse(1, 19))
 """

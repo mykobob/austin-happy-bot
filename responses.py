@@ -3,6 +3,8 @@ import sys
 
 from emotion_handlers import *
 
+from classObj import getResponse
+
 MINIMUM_THRESHOLD = 0.5
 
 def has_dominant_emotion(response):
@@ -34,15 +36,15 @@ def get_emotion_for_verse(response):
     # anger -> [PEACE, TRUST, ENCOURAGEMENT]
     highest_emotion, value = get_dominant_emotion(response)
     if highest_emotion == 'sadness':
-        return handle_sadness(value)
+        return handle_sadness(value), value
     elif highest_emotion == 'joy':
-        return handle_joy(value)
+        return handle_joy(value), value
     elif highest_emotion == 'fear':
-        return handle_fear(value)
+        return handle_fear(value), value
     elif highest_emotion == 'disgust':
-        return handle_disgust(value)
+        return handle_disgust(value), value
     else: # must be anger
-        return handle_anger(value)
+        return handle_anger(value), value
 
 def generate_response(text):
     # 1) Send data to IBM Watson
@@ -60,8 +62,9 @@ def generate_response(text):
         if has_dominant_emotion(emotion_probabilities):
             # response = ['{}-{} '.format(k, v) for k, v in response.items()]
             # response = str(response)
-            emotion_verse = get_emotion_for_verse(emotion_probabilities)
-            return emotion_verse
+            emotion_verse, confidence = get_emotion_for_verse(emotion_probabilities)
+
+            return getResponse(emotion_verse, confidence)
         else:
             return "Can you elaborate a little more on that?"
     except:
