@@ -17,7 +17,8 @@ def get_dominant_emotion(response):
         if v > best_prob:
             best_prob = v
             strongest_emotion = k
-    return k, v
+
+    return strongest_emotion, best_prob
 
 def get_emotion_for_verse(response):
     # Maps sadness, joy, fear, disgust, anger to the below emotions
