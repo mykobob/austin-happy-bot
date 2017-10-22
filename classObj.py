@@ -31,7 +31,6 @@ import json
 
 # reads in the verses in the text file
 def init():
-    
     #allVerses = defaultdict(list)
     
     verseFile = open("Emotion_Verse_List.txt","r")
@@ -60,17 +59,17 @@ def init():
  #   print(str(allVerses))
 
 def getVerseText(verse_obj):
-    from pprint import pprint
-    
     verse_ref = str(verse_obj) #will get all the verses, but haven't fixed the printing
+    print(verse_ref)    
     
     bible_response = requests.get('http://getbible.net/json?passage=' + verse_ref)
     bible_obj = json.loads(bible_response.text[1:-2])
- #   pprint(bible_obj)
+    print('Got response from api')
+    print(bible_obj)
 
-    verse = bible_obj['book'][0]['chapter'][str(verse)]['verse'].strip()#need to be fixed
+    verse = bible_obj['book'][0]['chapter'][verse_obj.startV]['verse'].strip()#need to be fixed
  #   pprint(verse)
- #   print(verse)
+    print(verse)
     return verse
 
 init()
@@ -88,7 +87,7 @@ def getEncouragement():
 
 def giveVerse():
   givingVerse = ["Here is something that might make your day: ", "I think that this might be helpful: ", "I hope that you find this verse helpful: ", "Here is something that may encourage you: ", "I think this may help you with what you're struggling with: ", " Here's something that may help you: ", "I hope this may be helpful: ","This may be helpful: ", "Here's something that may help you think this through: "]
-  ranGen = random.randint(0,len(givingVerse))
+  ranGen = random.randint(0,len(givingVerse) - 1)
   return givingVerse[ranGen]
 
 print(str(giveVerse()), str(getVerse(1)),"\n")
@@ -99,14 +98,14 @@ def getResponse(emotion, confidence):
   if (confidence < confThreshEncourage):
     return getEncouragement()
   print('past the first check')
-  #if (confidence < confThreshVerse):
-  print('before greeting')
   greeting = giveVerse()
-  print('greeting', greeting)
+  print('past the greeting')
   verse = getVerse(emotion)
-  print(greeting, verse)
-  print(type(greeting), type(verse))
-  return greeting + str(verse)
+  print('past the verse ref')
+  text = getVerseText(verse)
+  print('past the verse text', text)
+
+  return "{}{} '{}'".format(greeting, str(verse), text)
   
 """ 
 print(getResponse(1, 19))
