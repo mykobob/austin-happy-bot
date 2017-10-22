@@ -28,7 +28,9 @@ def send_message(recipient_id, message_text):
             "text": message_text
         }
     })
+    print('before post')
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    print('after post')
     if r.status_code != 200:
         log(r.status_code)
         log(r.text)

@@ -14,16 +14,8 @@ def call_ibm_watson(text):
     response = natural_language_understanding.analyze(
         text=text,
         features=[
-          Features.Entities(
-            emotion=True,
-            sentiment=True,
-            limit=2
-          ),
-          Features.Keywords(
-            emotion=True,
-            sentiment=True,
-            limit=2
-          )
+          Features.Emotion(),
         ])
     
+    print(json.dumps(response, indent=2))   
     return response
