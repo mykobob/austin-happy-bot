@@ -37,6 +37,7 @@ class Verse:
             return self.book + ' ' + str(self.chap) + ':' + str(self.startV)
 
 class VerseDb:
+
     def __init__(self):
         self.all_verses = defaultdict(list)
         
