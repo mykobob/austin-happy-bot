@@ -3,7 +3,7 @@ import sys
 
 from emotion_handlers import *
 
-from classObj import getResponse
+from verse_api import VerseDb
 
 MINIMUM_THRESHOLD = 0.5
 
@@ -67,7 +67,7 @@ def generate_response(text):
             emotion_verse, confidence = get_emotion_for_verse(emotion_probabilities)
             print('Emotion for verse is', emotion_verse)
 
-            response = getResponse(emotion_verse.value, int(confidence* 100))
+            response = get_response(emotion_verse.value, int(confidence* 100))
             print('Response for the message is', response)
             return response
         else:
