@@ -5,6 +5,8 @@ import pprint
 
 import requests
 
+import verse_api
+
 pp = pprint.PrettyPrinter(indent=4)
 
 conf_thresh_encourage = 20
@@ -40,6 +42,7 @@ class VerseDb:
 
     def __init__(self):
         self.all_verses = defaultdict(list)
+        self.api = VerseApi()
         
         with open('Emotion_Verse_List.txt','r') as verse_file:
             num_emotions = int(verse_file.readline())
@@ -60,15 +63,9 @@ class VerseDb:
                     actualCount += 1
     
     def get_verse_text(self, verse):
-        verse_ref = str(verse) #will get all the verses, but haven't fixed the printing
-        
-        bible_response = requests.get('http://getbible.net/json?passage=' + verse_ref)
-        bible_obj = json.loads(bible_response.text[1:-2])
-    
-        verse_texts = bible_obj['book'][0]['chapter']
-
-        return ' '.join(verse_texts[i]['verse'].strip() for i in verse.verse_range())
-    
+        verse_ref = str(verse) 
+        return self.api.get_text(verse_ref)
+            
     def get_verse(self, emotion_num):
         verses = self.all_verses[emotion_num]
         return verses[random.randint(0, len(verses)-1)]
