@@ -1,11 +1,13 @@
 from ibm import get_emotion_probabilities
-import sys
+import sys, traceback
 
 from emotion_handlers import *
 
-from classObj import getResponse
+from verse_api import VerseDb
 
 MINIMUM_THRESHOLD = 0.5
+
+verse_db = VerseDb()
 
 def has_dominant_emotion(response):
     return any(v > MINIMUM_THRESHOLD for k, v in response.items())
@@ -67,14 +69,13 @@ def generate_response(text):
             emotion_verse, confidence = get_emotion_for_verse(emotion_probabilities)
             print('Emotion for verse is', emotion_verse)
 
-            response = getResponse(emotion_verse.value, int(confidence* 100))
+            response = verse_db.get_response(emotion_verse.value, int(confidence* 100))
             print('Response for the message is', response)
             return response
         else:
             return "Can you elaborate a little more on that?"
     except:
-        e = sys.exc_info()[0]
-        print(e)
+        traceback.print_exc(file=sys.stdout)
         return "Oh. What do you mean?"
 
     #if 'sad' in text:
