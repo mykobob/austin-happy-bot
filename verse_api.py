@@ -72,25 +72,25 @@ class VerseDb:
         verses = self.all_verses[emotion_num]
         return verses[random.randint(0, len(verses)-1)]
     
-    def get_encouragement():
+    def get_encouragement(self):
       positive_messages = ["I hope you have a great day!", "Have a beautiful day, friend!","You can do whatever you set your mind to!", "Enjoy the rest of your day!"]
       ranGen = random.randint(0,len(positive_messages)-1)
       return positive_messages[ranGen] + " " + getVerse(7)
     
     
-    def get_greeting():
+    def get_greeting(self):
       greetings = ["Here is something that might make your day: ", "I think that this might be helpful: ", "I hope that you find this verse helpful: ", "Here is something that may encourage you: ", "I think this may help you with what you're struggling with: ", " Here's something that may help you: ", "I hope this may be helpful: ","This may be helpful: ", "Here's something that may help you think this through: "]
       ranGen = random.randint(0,len(greetings) - 1)
       return greetings[ranGen]
     
-    def get_response(emotion, confidence):
+    def get_response(self, emotion, confidence):
       print(emotion, confidence)
       
       if (confidence < conf_thresh_encourage):
-        return get_encouragement()
-      greeting = get_gretting()
-      verse = get_verse(emotion)
-      text = get_verse_text(verse)
+        return self.get_encouragement()
+      greeting = self.get_greeting()
+      verse = self.get_verse(emotion)
+      text = self.get_verse_text(verse)
     
       return "{}{} '{}'".format(greeting, str(verse), text)
       
